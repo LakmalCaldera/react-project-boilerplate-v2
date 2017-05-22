@@ -1,5 +1,5 @@
 module.exports = {
-  entry: './app/app.jsx',
+  entry: 'app/app.jsx',
   output: {
     path: __dirname,
     filename: './public/bundle.js'
@@ -8,8 +8,14 @@ module.exports = {
     extensions: ['', '.js', '.jsx'],
     root: __dirname,
     alias: {
-      // Load components
-      // eg. - Greeter: 'app/components/Greeter.jsx'
+      Main: 'app/components/Main.jsx',
+      Nav: 'app/components/Nav.jsx',
+      Weather: 'app/components/Weather.jsx',
+      WeatherForm: 'app/components/WeatherForm.jsx',
+      WeatherDisplay: 'app/components/WeatherDisplay.jsx',
+      About: 'app/components/About.jsx',
+      Examples: 'app/components/Examples.jsx',
+      openWeatherMap: 'app/api/openWeatherMap.jsx'
     }
   },
   module: {
@@ -23,5 +29,6 @@ module.exports = {
         exclude: /(node_modules|bower_components)/
       }
     ]
-  }
+  },
+  devtool: 'inline-source-map'
 }
