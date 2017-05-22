@@ -1,5 +1,5 @@
 var express = require('express');
-var request = require('request');
+//var request = require('request');
 
 // Create our App
 var app = express();
@@ -17,11 +17,11 @@ app.use(function(req, res, next){
 app.use(express.static('public'));
 
 // Proxy for third party weather api
-app.get('/data/2.5/weather', function(req,res) {
+/*app.get('/data/2.5/weather', function(req,res) {
   console.log(`Third Pary Api Request -  ${req.url}`);
   var newurl = `http://api.openweathermap.org/${req.url}`;
   request(newurl).pipe(res);
-});
+});*/
 
 // Listen to for incomming requests!!
 app.listen(PORT, function(){
