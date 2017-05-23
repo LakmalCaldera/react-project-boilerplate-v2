@@ -18,27 +18,33 @@ var Weather = React.createClass({
       isLoading: true
     })
 
-    function onSuccessLoading(){
+    openWeatherMap.getTemp(state.country).then(function(temp){
+      state.temperature = temp;
       state.isLoading = false;
       that.setState(state);
-    }
-
-    function onFailLoading(e){
+    }, function(errorMessage){
       delete state.country;
       delete state.temperature;
       state.isLoading = false;
-      state.errorMessage = e;
+      state.errorMessage = errorMessage.message;
       that.setState(state);
-    }
-
-    openWeatherMap.getTemp(state.country).then(function(temp){
-      state.temperature = temp;
-      onSuccessLoading();
-    }, function(errorMessage){
-      onFailLoading(errorMessage.message);
-      //alert(errorMessage);
-
     });
+  },
+  componentDidMount: function(){
+      var location = this.props.location.query.location;
+
+      if(location && location.length > 0){
+        this.handleSearch({country: location});
+        window.location.hash = "#/";
+      }
+  },
+  componentWillReceiveProps: function(newProps){
+    var location = newProps.location.query.location;
+
+    if(location && location.length > 0){
+      this.handleSearch({country: location});
+      window.location.hash = "#/";
+    }
   },
   render: function(){
     var {country, temperature, isLoading, errorMessage} = this.state;
@@ -64,7 +70,7 @@ var Weather = React.createClass({
 
     return (
       <div>
-        <h1 className="text-center">Get Weather</h1>
+        <h1 className="text-center page-title">Get Weather</h1>
         <WeatherForm onSearch={this.handleSearch}/>
         {renderMessage()}
         {renderErrorMessage()}

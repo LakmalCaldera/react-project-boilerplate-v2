@@ -5,7 +5,7 @@ var About = React.createClass({
   render: function(){
     return (
       <div>
-        <h1 className="text-center">About The App</h1>
+        <h1 className="text-center page-title">About The App</h1>
         <p>A weather application that fetch the Temperature of any given city. This app was developed to learn the React Library and Redux Pattern.</p>
         <p>You can follow the project on <a href="https://github.com/LakmalCaldera/ReactWeatherApp">GitHub</a></p>
         <p>This app is developed by: <strong>Lakmal Caldera</strong></p>
