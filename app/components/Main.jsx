@@ -1,13 +1,17 @@
 var React = require('react');
-var Nav = require('Nav');
 
 var Main = React.createClass({
   render: function(){
     return (
       <div>
-      <Nav/>
-        <div className="row">
-          <div className="colums medium-6 large-4 small-centered">
+        <div>
+          <div>
+            <h1>This is a React Boilerplate app</h1>
+            <ul>
+              <li>React</li>
+              <li>React Router</li>
+              <li>Foundation</li>
+            </ul>
             {this.props.children}
           </div>
         </div>

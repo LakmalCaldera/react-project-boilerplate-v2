@@ -1,2 +1,2 @@
-# ReactWeatherApp
-A React App that fetch temperature information for provided city
+# Boilerplate React App v2
+Includes Foundation and React-router.. :)
